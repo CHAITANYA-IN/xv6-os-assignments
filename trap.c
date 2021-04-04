@@ -77,7 +77,11 @@ void trap(struct trapframe *tf)
             cpuid(), tf->cs, tf->eip);
     lapiceoi();
     break;
-
+  // Case of trap 14
+  // case T_PGFLT:
+  //   cprintf("PAGE FAULT\n");
+  //   myproc()->killed = 1;
+  //   break;
   //PAGEBREAK: 13
   default:
     if (myproc() == 0 || (tf->cs & 3) == 0)
