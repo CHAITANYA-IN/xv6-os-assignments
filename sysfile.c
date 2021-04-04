@@ -455,3 +455,35 @@ int sys_pipe(void)
   fd[1] = fd1;
   return 0;
 }
+
+int sys_lseek(void)
+{
+  int fd, offset, whence;
+  struct file *f;
+  argfd(0, &fd, &f);
+  argint(1, &offset);
+  argint(2, &whence);
+  if (f == 0)
+  {
+    cprintf("File not passed correctly");
+    exit();
+  }
+  switch (whence)
+  {
+  case SEEK_SET:
+    break;
+  case SEEK_END:
+    offset += f->ip->size;
+    break;
+  case SEEK_CUR:
+    offset += f->off;
+    break;
+  default:
+    return -1;
+  }
+  if (offset < 0 || offset > f->ip->size) // Not Ignoring the case if offset goes beyond the current size of file
+    return -1;
+  if (offset != f->off)
+    f->off = offset;
+  return 0;
+}
