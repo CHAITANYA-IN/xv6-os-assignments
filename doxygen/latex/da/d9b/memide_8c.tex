@@ -1,0 +1,65 @@
+\hypertarget{memide_8c}{}\doxysection{memide.\+c File Reference}
+\label{memide_8c}\index{memide.c@{memide.c}}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mmu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}proc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}x86.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}traps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spinlock.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sleeplock.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}buf.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{memide_8c_aefb190a6104cb58c0bc1f8fec88d1307}{ideinit}} (void)
+\item 
+void \mbox{\hyperlink{memide_8c_a709693afdb9b89d848e684e7acde1f8f}{ideintr}} (void)
+\item 
+void \mbox{\hyperlink{memide_8c_a7f36b008f02088c86f76e98e05b55af5}{iderw}} (struct \mbox{\hyperlink{structbuf}{buf}} $\ast$b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \mbox{\hyperlink{memide_8c_af73b74f3a51ba441c3b68b1cf3e276c3}{\+\_\+binary\+\_\+fs\+\_\+img\+\_\+start}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{types_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \mbox{\hyperlink{memide_8c_a10b9652e23b65245bbc2126350c915d3}{\+\_\+binary\+\_\+fs\+\_\+img\+\_\+size}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memide_8c_aefb190a6104cb58c0bc1f8fec88d1307}\label{memide_8c_aefb190a6104cb58c0bc1f8fec88d1307}} 
+\index{memide.c@{memide.c}!ideinit@{ideinit}}
+\index{ideinit@{ideinit}!memide.c@{memide.c}}
+\doxysubsubsection{\texorpdfstring{ideinit()}{ideinit()}}
+{\footnotesize\ttfamily void ideinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{memide_8c_a709693afdb9b89d848e684e7acde1f8f}\label{memide_8c_a709693afdb9b89d848e684e7acde1f8f}} 
+\index{memide.c@{memide.c}!ideintr@{ideintr}}
+\index{ideintr@{ideintr}!memide.c@{memide.c}}
+\doxysubsubsection{\texorpdfstring{ideintr()}{ideintr()}}
+{\footnotesize\ttfamily void ideintr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{memide_8c_a7f36b008f02088c86f76e98e05b55af5}\label{memide_8c_a7f36b008f02088c86f76e98e05b55af5}} 
+\index{memide.c@{memide.c}!iderw@{iderw}}
+\index{iderw@{iderw}!memide.c@{memide.c}}
+\doxysubsubsection{\texorpdfstring{iderw()}{iderw()}}
+{\footnotesize\ttfamily void iderw (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbuf}{buf}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{memide_8c_a10b9652e23b65245bbc2126350c915d3}\label{memide_8c_a10b9652e23b65245bbc2126350c915d3}} 
+\index{memide.c@{memide.c}!\_binary\_fs\_img\_size@{\_binary\_fs\_img\_size}}
+\index{\_binary\_fs\_img\_size@{\_binary\_fs\_img\_size}!memide.c@{memide.c}}
+\doxysubsubsection{\texorpdfstring{\_binary\_fs\_img\_size}{\_binary\_fs\_img\_size}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \+\_\+binary\+\_\+fs\+\_\+img\+\_\+size\mbox{[}$\,$\mbox{]}}
+
+\mbox{\Hypertarget{memide_8c_af73b74f3a51ba441c3b68b1cf3e276c3}\label{memide_8c_af73b74f3a51ba441c3b68b1cf3e276c3}} 
+\index{memide.c@{memide.c}!\_binary\_fs\_img\_start@{\_binary\_fs\_img\_start}}
+\index{\_binary\_fs\_img\_start@{\_binary\_fs\_img\_start}!memide.c@{memide.c}}
+\doxysubsubsection{\texorpdfstring{\_binary\_fs\_img\_start}{\_binary\_fs\_img\_start}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \+\_\+binary\+\_\+fs\+\_\+img\+\_\+start\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

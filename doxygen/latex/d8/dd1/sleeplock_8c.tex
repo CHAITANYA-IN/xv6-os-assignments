@@ -1,0 +1,49 @@
+\hypertarget{sleeplock_8c}{}\doxysection{sleeplock.\+c File Reference}
+\label{sleeplock_8c}\index{sleeplock.c@{sleeplock.c}}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}x86.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memlayout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mmu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}proc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spinlock.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sleeplock.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sleeplock_8c_aaa5746f0a7ae0071b2916be5fdedf4ab}{initsleeplock}} (struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$lk, char $\ast$name)
+\item 
+void \mbox{\hyperlink{sleeplock_8c_aaad2d7a86d4859982dd9a132f5128ff2}{acquiresleep}} (struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$lk)
+\item 
+void \mbox{\hyperlink{sleeplock_8c_aa997067c2c9bfef15af6fa0a10c20f4a}{releasesleep}} (struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$lk)
+\item 
+int \mbox{\hyperlink{sleeplock_8c_a6fdbe54cbecd8fc67d74793b27adcf05}{holdingsleep}} (struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$lk)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sleeplock_8c_aaad2d7a86d4859982dd9a132f5128ff2}\label{sleeplock_8c_aaad2d7a86d4859982dd9a132f5128ff2}} 
+\index{sleeplock.c@{sleeplock.c}!acquiresleep@{acquiresleep}}
+\index{acquiresleep@{acquiresleep}!sleeplock.c@{sleeplock.c}}
+\doxysubsubsection{\texorpdfstring{acquiresleep()}{acquiresleep()}}
+{\footnotesize\ttfamily void acquiresleep (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$}]{lk }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sleeplock_8c_a6fdbe54cbecd8fc67d74793b27adcf05}\label{sleeplock_8c_a6fdbe54cbecd8fc67d74793b27adcf05}} 
+\index{sleeplock.c@{sleeplock.c}!holdingsleep@{holdingsleep}}
+\index{holdingsleep@{holdingsleep}!sleeplock.c@{sleeplock.c}}
+\doxysubsubsection{\texorpdfstring{holdingsleep()}{holdingsleep()}}
+{\footnotesize\ttfamily int holdingsleep (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$}]{lk }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sleeplock_8c_aaa5746f0a7ae0071b2916be5fdedf4ab}\label{sleeplock_8c_aaa5746f0a7ae0071b2916be5fdedf4ab}} 
+\index{sleeplock.c@{sleeplock.c}!initsleeplock@{initsleeplock}}
+\index{initsleeplock@{initsleeplock}!sleeplock.c@{sleeplock.c}}
+\doxysubsubsection{\texorpdfstring{initsleeplock()}{initsleeplock()}}
+{\footnotesize\ttfamily void initsleeplock (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$}]{lk,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sleeplock_8c_aa997067c2c9bfef15af6fa0a10c20f4a}\label{sleeplock_8c_aa997067c2c9bfef15af6fa0a10c20f4a}} 
+\index{sleeplock.c@{sleeplock.c}!releasesleep@{releasesleep}}
+\index{releasesleep@{releasesleep}!sleeplock.c@{sleeplock.c}}
+\doxysubsubsection{\texorpdfstring{releasesleep()}{releasesleep()}}
+{\footnotesize\ttfamily void releasesleep (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsleeplock}{sleeplock}} $\ast$}]{lk }\end{DoxyParamCaption})}
+

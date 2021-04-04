@@ -1,0 +1,55 @@
+\hypertarget{umalloc_8c}{}\doxysection{umalloc.\+c File Reference}
+\label{umalloc_8c}\index{umalloc.c@{umalloc.c}}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stat.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionheader}{header}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef long \mbox{\hyperlink{umalloc_8c_aa508dd61e627680e57643837d292d89f}{Align}}
+\item 
+typedef union \mbox{\hyperlink{unionheader}{header}} \mbox{\hyperlink{umalloc_8c_a1a2bfaef0959ba21a357a6f8feaa477b}{Header}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{umalloc_8c_adebb229f063e66907017098087cbe791}{free}} (void $\ast$ap)
+\item 
+void $\ast$ \mbox{\hyperlink{umalloc_8c_a94267ee40e0547410676894ab3f23c15}{malloc}} (\mbox{\hyperlink{types_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} nbytes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{umalloc_8c_aa508dd61e627680e57643837d292d89f}\label{umalloc_8c_aa508dd61e627680e57643837d292d89f}} 
+\index{umalloc.c@{umalloc.c}!Align@{Align}}
+\index{Align@{Align}!umalloc.c@{umalloc.c}}
+\doxysubsubsection{\texorpdfstring{Align}{Align}}
+{\footnotesize\ttfamily typedef long \mbox{\hyperlink{umalloc_8c_aa508dd61e627680e57643837d292d89f}{Align}}}
+
+\mbox{\Hypertarget{umalloc_8c_a1a2bfaef0959ba21a357a6f8feaa477b}\label{umalloc_8c_a1a2bfaef0959ba21a357a6f8feaa477b}} 
+\index{umalloc.c@{umalloc.c}!Header@{Header}}
+\index{Header@{Header}!umalloc.c@{umalloc.c}}
+\doxysubsubsection{\texorpdfstring{Header}{Header}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{unionheader}{header}} \mbox{\hyperlink{umalloc_8c_a1a2bfaef0959ba21a357a6f8feaa477b}{Header}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{umalloc_8c_adebb229f063e66907017098087cbe791}\label{umalloc_8c_adebb229f063e66907017098087cbe791}} 
+\index{umalloc.c@{umalloc.c}!free@{free}}
+\index{free@{free}!umalloc.c@{umalloc.c}}
+\doxysubsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily void free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ap }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{umalloc_8c_a94267ee40e0547410676894ab3f23c15}\label{umalloc_8c_a94267ee40e0547410676894ab3f23c15}} 
+\index{umalloc.c@{umalloc.c}!malloc@{malloc}}
+\index{malloc@{malloc}!umalloc.c@{umalloc.c}}
+\doxysubsubsection{\texorpdfstring{malloc()}{malloc()}}
+{\footnotesize\ttfamily void$\ast$ malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{nbytes }\end{DoxyParamCaption})}
+
