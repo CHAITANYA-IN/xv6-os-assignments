@@ -6,6 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include "getstats.h"
 
 struct {
   struct spinlock lock;
@@ -13,6 +14,7 @@ struct {
 } ptable;
 
 static struct proc *initproc;
+struct statistics d;
 
 int nextpid = 1;
 extern void forkret(void);
@@ -217,6 +219,7 @@ fork(void)
   np->state = RUNNABLE;
 
   release(&ptable.lock);
+  d.processes_forked++;
 
   return pid;
 }
@@ -343,6 +346,7 @@ scheduler(void)
       switchuvm(p);
       p->state = RUNNING;
 
+      d.context_switches++;
       swtch(&(c->scheduler), p->context);
       switchkvm();
 
@@ -377,6 +381,7 @@ sched(void)
   if(readeflags()&FL_IF)
     panic("sched interruptible");
   intena = mycpu()->intena;
+  d.context_switches++;
   swtch(&p->context, mycpu()->scheduler);
   mycpu()->intena = intena;
 }
@@ -438,7 +443,6 @@ sleep(void *chan, struct spinlock *lk)
   // Go to sleep.
   p->chan = chan;
   p->state = SLEEPING;
-
   sched();
 
   // Tidy up.
@@ -531,4 +535,19 @@ procdump(void)
     }
     cprintf("\n");
   }
+}
+
+int getstats(struct statistics *p) {
+  p->system_calls = d.system_calls;
+  p->hwInterrupts = d.hwInterrupts;
+  p->bytes_transferred_by_read = d.bytes_transferred_by_read;
+  p->processes_forked = d.processes_forked;
+  p->free_struct_files = NFILE - d.free_struct_files;
+  p->free_pages= d.free_pages;
+  p->free_buffers = d.free_buffers;
+  p->free_inodes = d.free_inodes;
+  p->free_blocks_on_disk = d.free_blocks_on_disk = free_blocks();
+  p->context_switches = d.context_switches;
+  d.free_struct_files = 0;
+  return 0;
 }

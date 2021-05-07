@@ -25,16 +25,16 @@
 static void itrunc(struct inode*);
 // there should be one superblock per disk device, but we run with
 // only one device
-struct superblock sb; 
+struct superblock sb;
 
 // Read the super block.
 void
 readsb(int dev, struct superblock *sb)
 {
   struct buf *bp;
-
   bp = bread(dev, 1);
   memmove(sb, bp->data, sizeof(*sb));
+  //dataBlocks = sb->nblocks;
   brelse(bp);
 }
 
@@ -667,4 +667,23 @@ struct inode*
 nameiparent(char *path, char *name)
 {
   return namex(path, 1, name);
+}
+
+int
+free_blocks()
+{
+  int b, bi, m, countf = 0;
+  struct buf *bp = 0;
+  for(b = 0; b < sb.size; b += BPB){
+    bp = bread(1, BBLOCK(b, sb));
+    for(bi = 0; bi < BPB && b + bi < sb.size; bi++){
+      m = 1 << (bi % 8);
+      if(!(bp->data[bi/8] & m)){
+        if (!(countf % 16))
+          ++countf;
+      }
+    }
+    brelse(bp);
+  }
+  return countf;
 }

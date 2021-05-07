@@ -7,12 +7,14 @@
 #include "x86.h"
 #include "traps.h"
 #include "spinlock.h"
+#include "getstats.h"
 
 // Interrupt descriptor table (shared by all CPUs).
 struct gatedesc idt[256];
 extern uint vectors[];  // in vectors.S: array of 256 entry pointers
 struct spinlock tickslock;
 uint ticks;
+extern struct statistics d;
 
 void
 tvinit(void)
@@ -37,6 +39,7 @@ void
 trap(struct trapframe *tf)
 {
   if(tf->trapno == T_SYSCALL){
+    d.system_calls++;
     if(myproc()->killed)
       exit();
     myproc()->tf = tf;
@@ -92,8 +95,9 @@ trap(struct trapframe *tf)
             myproc()->pid, myproc()->name, tf->trapno,
             tf->err, cpuid(), tf->eip, rcr2());
     myproc()->killed = 1;
+    d.hwInterrupts--;
   }
-
+  d.hwInterrupts++;
   // Force process exit if it has been killed and is in user space.
   // (If it is still executing in the kernel, let it keep running
   // until it gets to the regular system call return.)

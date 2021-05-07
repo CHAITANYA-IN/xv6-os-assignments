@@ -9,12 +9,14 @@
 #include "spinlock.h"
 #include "sleeplock.h"
 #include "file.h"
+#include "getstats.h"
 
 struct devsw devsw[NDEV];
 struct {
   struct spinlock lock;
   struct file file[NFILE];
 } ftable;
+extern struct statistics d;
 
 void
 fileinit(void)
@@ -32,6 +34,7 @@ filealloc(void)
   for(f = ftable.file; f < ftable.file + NFILE; f++){
     if(f->ref == 0){
       f->ref = 1;
+      d.free_struct_files++;
       release(&ftable.lock);
       return f;
     }
@@ -77,6 +80,7 @@ fileclose(struct file *f)
     iput(ff.ip);
     end_op();
   }
+  d.free_struct_files--;
 }
 
 // Get metadata about file f.

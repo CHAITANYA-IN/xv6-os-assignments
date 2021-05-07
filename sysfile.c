@@ -15,6 +15,9 @@
 #include "sleeplock.h"
 #include "file.h"
 #include "fcntl.h"
+#include "getstats.h"
+
+extern struct statistics d;
 
 // Fetch the nth word-sized system call argument as a file descriptor
 // and return both the descriptor and the corresponding struct file.
@@ -72,10 +75,13 @@ sys_read(void)
   struct file *f;
   int n;
   char *p;
+  int finalRead;
 
   if(argfd(0, 0, &f) < 0 || argint(2, &n) < 0 || argptr(1, &p, n) < 0)
     return -1;
-  return fileread(f, p, n);
+  finalRead = fileread(f, p, n);
+  d.bytes_transferred_by_read+=finalRead;
+  return finalRead;
 }
 
 int

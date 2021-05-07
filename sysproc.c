@@ -6,6 +6,7 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
+#include "getstats.h"
 
 int
 sys_fork(void)
@@ -88,4 +89,13 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+
+int 
+sys_getstats(void)
+{
+  struct statistics *p;
+  if(argptr(0, (char **)&p, sizeof(struct statistics)) < 0)
+    return -1;
+  return getstats(p);
 }
